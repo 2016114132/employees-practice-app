@@ -1,5 +1,5 @@
 import express, {Request, Response, NextFunction} from 'express'
-// import postalServiceRoutes from './routes/postalServiceRoutes'
+import employeeRoutes from './routes/employeeRoutes'
 import path from "path"
 import { query } from "./config/db";
 
@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(process.cwd(), "src/public")));
 
 app.set("view engine", "ejs");
-app.set("views", path.join(process.cwd(), "src/views"));
+app.set("views", path.join(process.cwd(), "src/public"));
 
 const loggingMiddleware = (req: Request, res: Response, next: NextFunction) => {
     console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
@@ -18,17 +18,7 @@ const loggingMiddleware = (req: Request, res: Response, next: NextFunction) => {
 
 app.use(loggingMiddleware);
 
-app.use('/', async (req, res) => {
-
-    try{
-        const result = await query("SELECT current_user");
-
-        res.send(result);
-    }catch(error){
-        res.status(500).send('An error occurred while getting the list of tasks.');
-    }    
-    
-});
+app.use('/', employeeRoutes);
 
 app.use((req: Request, res: Response) => {
     res.status(400).send('Page Not Found');

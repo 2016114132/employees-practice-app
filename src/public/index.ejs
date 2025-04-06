@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title><%= title %></title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>    
+        <div class="container">
+                <div class="card m-10">    
+                    <h2>Add Full-Time Employee</h2>
+    
+                    <form method="POST" action="/add-fulltime">            
+                
+                      <div class="input-group">
+                        <label for="fullName">Full Name</label>
+                        <input id="fullName" type="text" name="fullName" />
+                      </div>
+                      
+                      <div class="input-group">
+                        <label for="annualSalary">Annual Salary</label>
+                        <input id="annualSalary" type="text" name="annualSalary" />
+                      </div>
+                      
+                      <div class="input-group">
+                        <button type="submit">+ Add Full-Time Employee</button>              
+                      </div>                
+                    </form>              
+                </div>
+
+                <div class="card m-10">    
+                    <h2>Add Part-Time Employee</h2>
+    
+                    <form method="POST" action="/add-parttime">            
+                
+                      <div class="input-group">
+                        <label for="fullName">Full Name</label>
+                        <input id="fullName" type="text" name="fullName" />
+                      </div>
+                      
+                      <div class="input-group">
+                        <label for="hourlyRate">Hourly Rate</label>
+                        <input id="hourlyRate" type="text" name="hourlyRate" />
+                      </div>
+
+                      <div class="input-group">
+                        <label for="hoursWorked">Hours Worked</label>
+                        <input id="hoursWorked" type="text" name="hoursWorked" />
+                      </div>
+                      
+                      <div class="input-group">
+                        <button type="submit">+ Add Part-Time Employee</button>              
+                      </div>                
+                    </form>              
+                </div>
+            
+        </div>
+    </body>
+</html>
